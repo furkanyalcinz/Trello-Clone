@@ -3,7 +3,9 @@ import Navi from "./components/UI/Navi";
 import Login from "./components/User/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignIn from "./components/User/SignIn";
-import TodoCard from "./components/UI/TodoCard";
+import TodoList from "./components/Todo/TodoList";
+
+import AddTodo from "./components/Todo/AddTodo";
 function App() {
   const DUMMY_USERS = [
     {
@@ -13,6 +15,28 @@ function App() {
       password: "123456",
     },
   ];
+  const DUMMY_TODOS = [
+    {
+      id:"c1",
+      title:"Test",
+      description: "test test testest.",
+      expireDate:"22/01/2023",
+      taskStatu :"1"
+    },
+    {
+      id:"c2",
+      title:"Test2",
+      description: "test test testest.",
+      expireDate:"22/01/2023",
+      taskStatu :"1"
+    },
+  ];
+  const [todos, setTodos] = useState(DUMMY_TODOS);
+  const addTodo = (todo) => {
+
+    setTodos([todo, ...DUMMY_TODOS]);
+    addTodoModalHandler();
+  };
   const [users, setUsers] = useState(DUMMY_USERS);
   const addUser = (user) => {
     setUsers([user, ...DUMMY_USERS]);
@@ -63,6 +87,10 @@ function App() {
     setSignInPage(!singInPage);
   };
 
+  // add new todo
+
+  const [isAddingTodo, setIsAddingTodo] = useState(false);
+  const addTodoModalHandler = () => {setIsAddingTodo(!isAddingTodo)};
   return (
     <>
       <Navi
@@ -85,7 +113,9 @@ function App() {
           addUser={addUser}
         />
       )}
-      {isLoggedIn && <TodoCard/>}
+      {/* {isLoggedIn && (<Button onClick={addTodoModalHandler} style={{margin:"30px"}}>Görev Ekle</Button>)} */}
+      {isLoggedIn && isAddingTodo && (<AddTodo isOpen={isAddingTodo} close={addTodoModalHandler} add={addTodo}/>)}
+      {isLoggedIn && (<TodoList add={addTodoModalHandler} cards={todos}/>)}
     </>
   );
 }
