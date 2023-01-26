@@ -22,3 +22,13 @@ export function AddTodo(todo) {
     DUMMY_TODO_LIST.push(todoModel);
 
 }
+
+export function UpdateTodo(todoUpdate) {
+    let updatedTodo = DUMMY_TODO_LIST.map((todo)=>{
+        if(todo.id === todoUpdate.id){
+            return todo
+        }
+    })
+    let indexOfTodo = DUMMY_TODO_LIST.findIndex(t=> t.id == updatedTodo.id);
+    DUMMY_TODO_LIST[1+indexOfTodo].taskStatu=todoUpdate.statu
+}

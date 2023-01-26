@@ -5,20 +5,19 @@ import {signupPageToggle} from "@/redux/signup";
 const Navi = (props) => {
     const dispatch = useDispatch();
     const {isLoggedIn} = useSelector((state) => state.login);
-    console.log(isLoggedIn);
   return (
     <>
-      <Navbar>
-        <NavbarBrand href="/">ZRELLO</NavbarBrand>
+      <Navbar style={{backgroundColor:"rgb(130, 0, 0)"}}>
+        <NavbarBrand style={{color:"rgb(250, 236, 214)"}} href="/"><img alt="logo" src="/zeorbee.svg" style={{height:40, width:70}}/></NavbarBrand>
         <Nav>
           <NavItem>
-            {isLoggedIn && (<Button onClick={()=>dispatch(loggedin())}>Çıkış</Button>)}
+            {isLoggedIn && (<Button style={{backgroundColor:"rgb(78, 108, 80)"}} onClick={()=>dispatch(loggedin())}>Çıkış</Button>)}
           </NavItem>
           <NavItem>
-            {!isLoggedIn && <Button style={{ marginRight: 5 }} onClick={()=>dispatch(loginPageToggle())}>Log In</Button>}
+            {!isLoggedIn && <Button style={{ marginRight: 5, backgroundColor:"rgb(242, 222, 186)", color:"rgb(130, 0, 0)" }} onClick={()=>dispatch(loginPageToggle())}>Giriş</Button>}
           </NavItem>
           <NavItem>
-          {!isLoggedIn && <Button onClick={()=>dispatch(signupPageToggle())}>Sign In</Button>}
+          {!isLoggedIn && <Button style={{backgroundColor:"rgb(250, 236, 214)", color:"rgb(130, 0, 0)"}} onClick={()=>dispatch(signupPageToggle())}>Kayıt ol</Button>}
           </NavItem>
         </Nav>
       </Navbar>

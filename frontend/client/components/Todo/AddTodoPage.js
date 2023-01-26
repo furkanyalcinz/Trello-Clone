@@ -11,7 +11,7 @@ import {
     ModalFooter,
   } from "reactstrap";
 
-const AddTodo = (props) => {
+const AddTodoPage = (props) => {
     const [enteredTitle, setEnteredTitle] = useState("");
     const [enteredDescription, setEnteredDescription] = useState("");
     const [enteredExpireDate, setEnteredExpireDate] = useState("");
@@ -27,20 +27,26 @@ const AddTodo = (props) => {
         setEnteredExpireDate(event.target.value);
     };
     const addTodo = () => {
+
         const todo = {
-            id:"c3",
+            id:Math.random(),
             title:enteredTitle,
             description: enteredDescription,
             expireDate:enteredExpireDate,
             taskStatu :enteredTaskStatu
             
         };
-        props.add(todo);
+        props.addTodo(todo);
+        setEnteredTitle("")
+        setEnteredDescription("")
+        setEnteredExpireDate("")
+        setEnteredTaskStatu("1")
+        props.close();
     }
     
     return(
         <>
-        <Modal isOpen={props.isOpen}>
+        <Modal  isOpen={props.isOpen}>
             <ModalHeader>Görev Ekle</ModalHeader>
             <ModalBody>
                 <Form>
@@ -65,4 +71,4 @@ const AddTodo = (props) => {
     );
 };
 
-export default AddTodo;
+export default AddTodoPage;

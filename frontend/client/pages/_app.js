@@ -6,14 +6,15 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 
-
 export default function App({ Component, pageProps }) {
-  let persisor = persistStore(reduxStore);
+	let persisor = persistStore(reduxStore);
 	return (
 		<Provider store={reduxStore}>
 			<PersistGate persistor={persisor}>
-				<Navi />
-				<Component {...pageProps} />
+				
+					<Navi />
+					<Component {...pageProps} />
+			
 			</PersistGate>
 		</Provider>
 	);
