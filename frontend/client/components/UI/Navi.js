@@ -7,11 +7,11 @@ const Navi = (props) => {
     const {isLoggedIn} = useSelector((state) => state.login);
   return (
     <>
-      <Navbar style={{backgroundColor:"rgb(130, 0, 0)"}}>
+      <Navbar style={{backgroundColor:"#00425A"}}>
         <NavbarBrand style={{color:"rgb(250, 236, 214)"}} href="/"><img alt="logo" src="/zeorbee.svg" style={{height:40, width:70}}/></NavbarBrand>
         <Nav>
           <NavItem>
-            {isLoggedIn && (<Button style={{backgroundColor:"rgb(78, 108, 80)"}} onClick={()=>dispatch(loggedin())}>Çıkış</Button>)}
+            {isLoggedIn && (<Button style={{backgroundColor:'rgb(242, 222, 186)', color:"rgb(130, 0, 0)"}} onClick={()=>dispatch(loggedin())}>Çıkış</Button>)}
           </NavItem>
           <NavItem>
             {!isLoggedIn && <Button style={{ marginRight: 5, backgroundColor:"rgb(242, 222, 186)", color:"rgb(130, 0, 0)" }} onClick={()=>dispatch(loginPageToggle())}>Giriş</Button>}

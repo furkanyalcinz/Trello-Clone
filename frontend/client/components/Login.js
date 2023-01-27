@@ -57,6 +57,7 @@ const Login = (props) => {
 							<Label for="password"> Şifre</Label>
 							<Input
 								id="password"
+								name='password'
 								placeholder="Şifrenizi yazın"
 								type="password"
 								onChange={passwordChangeHandler}

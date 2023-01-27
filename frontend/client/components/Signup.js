@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {signupPageToggle} from "../redux/signup";
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {SignUp} from "@/bussiness/LoginService"
 
 const SignIn = (props) => {
 
@@ -32,13 +33,14 @@ const SignIn = (props) => {
 		setEnteredFullname(event.target.value);
 	};
 	const addUserHandler = () => {
-		props.closePage();
-		props.addUser({
-			id: 'e' + Math.random(),
-			fullname: enteredFullname,
-			email: enteredMail,
-			password: enteredPassword,
-		});
+		signupPageToggle()
+		SignUp(enteredMail, enteredPassword)
+		// props.addUser({
+		// 	id: 'e' + Math.random(),
+		// 	fullname: enteredFullname,
+		// 	email: enteredMail,
+		// 	password: enteredPassword,
+		// });
 	};
     const dispatch = useDispatch();
 

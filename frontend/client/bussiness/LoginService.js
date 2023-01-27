@@ -16,9 +16,12 @@ function LoginController(email, password) {
     return isLoggedIn;
 }
 
-function SignIn(email, password){
+function SignUp(email, password){
+    console.log(email)
+    console.log(password)
     user = {email: email, password: password}
+    console.log(user)
     DUMMY_ACCOUNTS.push(user)
 }
 
-export {LoginController, SignIn};
+export {LoginController, SignUp};

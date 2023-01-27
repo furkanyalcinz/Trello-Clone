@@ -82,8 +82,7 @@ const TodoList = () => {
 						setAddTodoToggle(!addTodoToggle);
 					}}
 					style={{
-						position: 'absolute',
-						left: 20,
+						marginRight:10,
 						marginTop: 20,
 						width: '7rem',
 						backgroundColor: 'rgb(242, 222, 186)',
@@ -98,7 +97,7 @@ const TodoList = () => {
                         setFilter('1')
 						
 					}}
-					style={{ marginRight: 10, width: '7rem', marginTop: 20, backgroundColor: 'green' }}
+					style={{ marginRight: 10, width: '7rem', marginTop: 20, backgroundColor: 'rgb(31, 138, 112)' }}
 				>
 					Yapılacaklar
 				</Button>
@@ -108,7 +107,7 @@ const TodoList = () => {
 						setFilter('2')
 						
 					}}
-					style={{ marginRight: 10, width: '7rem', marginTop: 20, backgroundColor: 'blue' }}
+					style={{ marginRight: 10, width: '7rem', marginTop: 20, backgroundColor: 'rgb(191, 219, 56)' }}
 				>
 					Sürüyor
 				</Button>
@@ -118,7 +117,7 @@ const TodoList = () => {
 						setFilter('3')
 						
 					}}
-					style={{ width: '7rem', marginTop: 20, backgroundColor: 'darkblue' }}
+					style={{ width: '7rem', marginTop: 20, backgroundColor: 'rgb(252, 115, 0)' }}
 				>
 					Yapıldı
 				</Button>

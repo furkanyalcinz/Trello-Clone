@@ -1,5 +1,3 @@
-import { UpdateTodo } from '@/bussiness/TodoService';
-import { useState } from 'react';
 import { Button, CardBody, Card, CardTitle, CardSubtitle, CardText, Col, Row } from 'reactstrap';
 const TodoCard = (props) => {
 	const todo = {
@@ -11,7 +9,7 @@ const TodoCard = (props) => {
 	};
 
 	return (
-		<Card draggable="true" style={{ width: '20rem', height: '30rem', overflow: 'hidden' }}>
+		<Card draggable="true" style={{ width: 'auto', height: '30rem', overflow: 'hidden' }}>
 			<img alt="Sample" src="https://picsum.photos/300/200" />
 			<CardBody>
 				<CardTitle tag="h5">{todo.title}</CardTitle>
@@ -28,32 +26,40 @@ const TodoCard = (props) => {
 					</Row>
 				</CardSubtitle>
 				<CardText>{todo.description}</CardText>
-				<div style={{ background: '', alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
-					<Button
-						style={{ marginRight: 3, width: '7rem', marginTop: 20 }}
-						onClick={() => {
-							props.update(todo.id, '1');
+					<div
+						style={{
+							alignItems: 'center',
+							flex:1,
+							justifyContent: 'center',
+							position:"absolute",
+							bottom:7
 						}}
 					>
-						Yapılacak
-					</Button>
-					<Button
-						style={{ marginRight: 3, width: '7rem', marginTop: 20 }}
-						onClick={() => {
-							props.update(todo.id, '2');
-						}}
-					>
-						Sürüyor
-					</Button>
-					<Button
-						style={{ width: '7rem', marginTop: 20 }}
-						onClick={() => {
-							props.update(todo.id, '3');
-						}}
-					>
-						Yapıldı
-					</Button>
-				</div>
+						<Button
+							style={{ marginRight: 3, width: 'auto', marginTop: 20 }}
+							onClick={() => {
+								props.update(todo.id, '1');
+							}}
+						>
+							Yapılacak
+						</Button>
+						<Button
+							style={{ marginRight: 3, width: 'auto', marginTop: 20 }}
+							onClick={() => {
+								props.update(todo.id, '2');
+							}}
+						>
+							Sürüyor
+						</Button>
+						<Button
+							style={{ width: 'auto', marginTop: 20 }}
+							onClick={() => {
+								props.update(todo.id, '3');
+							}}
+						>
+							Yapıldı
+						</Button>
+					</div>
 			</CardBody>
 		</Card>
 	);
