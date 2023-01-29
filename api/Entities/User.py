@@ -8,8 +8,7 @@ class User(db.Model):
     Password = db.Column(db.String())
 
  
-    def __init__(self, Id, Email, Password) -> None:
-        self.Id = Id
+    def __init__(self, Email=None, Password=None) -> None:
         self.Email = Email
         self.Password = Password
         super(User, self).__init__()
